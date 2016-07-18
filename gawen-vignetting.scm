@@ -28,6 +28,7 @@
          (borderSize (* hw (/ border 100.)))
          (blurSize   (* hw (/ blur   100.)))
          (vignetLayer 0))
+    (gimp-image-undo-group-start image)
 
     (set! vignetLayer (car (gimp-layer-new image
                                            width
@@ -44,6 +45,7 @@
 
     (if (= flatten TRUE) (gimp-image-merge-down image vignetLayer EXPAND-AS-NECESSARY))
 
+    (gimp-image-undo-group-end image)
     (gimp-displays-flush)
     ))
 
