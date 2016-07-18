@@ -41,7 +41,7 @@
     (chris-color-edge image vignetMask "white" borderSize)
     (plug-in-gauss-rle TRUE image vignetMask blurSize TRUE TRUE)
 
-    (gimp-image-set-active-layer image vignetLayer)
+    (gimp-layer-set-edit-mask vignetLayer FALSE)
 
     (if (= flatten TRUE) (gimp-image-merge-down image vignetLayer EXPAND-AS-NECESSARY))
 
