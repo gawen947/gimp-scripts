@@ -33,7 +33,7 @@
                                            width
                                            height
                                            RGBA-IMAGE
-                                           "vignet-layer"
+                                           "vignet"
                                            opacity
                                            NORMAL-MODE)))
     (gimp-image-insert-layer image vignetLayer 0 -1)
