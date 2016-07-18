@@ -25,7 +25,7 @@
   (let* ((width  (car (gimp-image-width image)))
          (height (car (gimp-image-height image)))
          (hw (min width height))
-         (borderSize (* hw (/ border 1000.)))
+         (borderSize (* hw (/ border 100.)))
          (blurSize   (* hw (/ blur   100.)))
          (vignetLayer 0))
 
@@ -65,7 +65,7 @@
                     SF-IMAGE "Image"             0
                     SF-DRAWABLE "Drawable"       0
                     SF-COLOR "Color"             "black"
-                    SF-ADJUSTMENT "Border (‰)"   '(20 0 1000 1 100 0 0)
-                    SF-ADJUSTMENT "Blur (%)"     '(40 0 100 1 10 0 0)
-                    SF-ADJUSTMENT "Opacity (%)"  '(50 0 100 1 10 0 0)
+                    SF-ADJUSTMENT "Border (%)"   '(2  0 100 0.1 1  1 0)
+                    SF-ADJUSTMENT "Blur (%)"     '(40 0 100 1   10 1 0)
+                    SF-ADJUSTMENT "Opacity (%)"  '(50 0 100 1   10 1 0)
                     SF-TOGGLE "Flatten image"    FALSE)
