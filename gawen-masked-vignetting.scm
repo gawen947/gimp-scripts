@@ -21,7 +21,7 @@
 ; (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 ; SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-(define (script-fu-gawen-masked-vignetting image layer border blur opacity flatten)
+(define (script-fu-gawen-masked-vignetting image layer border blur opacity)
   (let* ((width  (car (gimp-image-width image)))
          (height (car (gimp-image-height image)))
          (hw (min width height))
@@ -43,11 +43,8 @@
 
     (gimp-layer-set-edit-mask vignetLayer FALSE)
 
-    (if (= flatten TRUE) (gimp-image-merge-down image vignetLayer EXPAND-AS-NECESSARY))
-
     (gimp-image-undo-group-end image)
-    (gimp-displays-flush)
-    ))
+    (gimp-displays-flush)))
 
 (define (chris-color-edge image layer color size)
   (gimp-selection-all image)
@@ -68,5 +65,4 @@
                     SF-DRAWABLE "Drawable"       0
                     SF-ADJUSTMENT "Border (%)"   '(2   0 100 0.1 1  1 0)
                     SF-ADJUSTMENT "Blur (%)"     '(40  0 100 1   10 1 0)
-                    SF-ADJUSTMENT "Opacity (%)"  '(100 0 100 1   10 1 0)
-                    SF-TOGGLE "Flatten image"    FALSE)
+                    SF-ADJUSTMENT "Opacity (%)"  '(100 0 100 1   10 1 0))
