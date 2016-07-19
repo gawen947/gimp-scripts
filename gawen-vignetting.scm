@@ -46,8 +46,7 @@
     (if (= flatten TRUE) (gimp-image-merge-down image vignetLayer EXPAND-AS-NECESSARY))
 
     (gimp-image-undo-group-end image)
-    (gimp-displays-flush)
-    ))
+    (gimp-displays-flush)))
 
 (define (chris-color-edge image layer color size)
   (gimp-selection-all image)
